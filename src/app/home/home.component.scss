@@ -81,4 +81,10 @@
 }
 .spinner-wrapper {
   display: flex;
+  align-items: center;
+}
+
+#spin_sign{
+  width: 20px;
+  b2order: dashed 1px red;
 }

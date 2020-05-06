@@ -6,9 +6,12 @@
     <h3>Метеостанция (тип Luft WS-10).</h3>
     <p class="spinner-wrapper">Измерения на момент времени: <span>{{currentDate_time}}</span>  
       &nbsp; &nbsp;<span>( {{currentDate_date}} )</span>
-      <mat-spinner class="spinner-container" 
-        diameter="20" *ngIf="isLoadingData">
-      </mat-spinner>
+      <span id="spin_sign">
+        <mat-spinner class="spinner-container" 
+          diameter="20" *ngIf="isLoadingData">
+        </mat-spinner>
+      </span>
+      <button mat-stroked-button color="primary" (click)="meteoUpd()">Обновить</button>
     </p>
     
 
@@ -54,10 +57,7 @@
       [length]="10"
       [pageIndex]="0"
       [pageSize]="50"
-      [pageSizeOptions]="[2 ,25, 50, 100, 250]">
+      [pageSizeOptions]="[5 ,10, 25, 50]">
   </mat-paginator>
 </div>
  
- <div>
-  <script src="http://doprtr.intech.ru:5050/httpproxy/192.168.8.137:4125/t1.js"></script>
- </div>

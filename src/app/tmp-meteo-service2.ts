@@ -69,15 +69,8 @@ export class MeteoDataService {
     let request_indx:string = ""; //randomInt(1,5);
     //this.httpClient.get<Msg1[]>() - Убрал, пока данные получаю со своего
     // вебсервиса, который отдает данные как <xml>{..}</xml>
-    // var obBaseHref = document.getElementById("myBase");
-    // var x = obBaseHref["href"] || "";
-    // if (x){
-    //   x = x.replace(/\/$/,"")
-    // }
-    // var myBaseHref = x;
-
     request_indx += n;
-    //console.log("myBaseHref: "+myBaseHref)
+    
     console.log("REST_API_SERVER: "+this.REST_API_SERVER + request_indx)
      return this.httpClient //<MeteoDataTable[]>
       .get(this.REST_API_SERVER + request_indx, 
@@ -139,27 +132,7 @@ export class MeteoDataService {
               if (!r1.err) r1.meteo=mt.getMeteoDataTable();
             return r1;
           }
-          // { 
-          //     const x:MeteoDataTable[]= x1.meteo;
-          //     // данные с вебсервиса, который отдает данные как <xml>{..}</xml>
-          //     const json1 = x.body.replace(/<[^>]+>/g,"");
-          //     const ob1 = JSON.parse(json1);
-          //     //return ob1;
-          //   const d1: MeteoDataTable[] = [];
-          //   d1.push({num: 2,regname:"string2",name:"string2",value: "string22",measure:"str" })
-          //   d1.push({num: 3,regname:"string3",name:"string2",value: "string22",measure:"str" })
-          //   debugger;
-          //    //return {num: 2,regname:"string2",name:"string2",value: "string22",measure:"str" }
-          //    //return d1; 
-          //    return x1; 
-             
-          // }
         )
-        // ,map(x=>{
-        //   const json1 = x.body.replace(/<[^>]+>/g,"");
-        //   const ob1 = JSON.parse(json1);
-        //   return ob1;
-        // })
       );
   }
   handleError(error: HttpErrorResponse) {

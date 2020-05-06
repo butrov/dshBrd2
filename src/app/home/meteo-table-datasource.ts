@@ -80,6 +80,9 @@ export class DtTable1DataSource extends DataSource<MeteoDataTable> {
       this.loadMeteoData("");
     }, 100);
     
+    true && setTimeout(() => {
+      this.loadMeteoData("");
+    }, 10000);
 
     // Combine everything that affects the rendered data into one update
     // stream for the data-table to consume.
@@ -106,6 +109,8 @@ export class DtTable1DataSource extends DataSource<MeteoDataTable> {
               lessons =>{ 
                 
                 this.data = lessons.meteo
+                // Установим количество строк в пагинаторе:
+                this.paginator.length = this.data.length;
                 debugger;
                 this.lessonsSubject.next(this.data);
                 //this.loadingSubject.next(false);

@@ -20,6 +20,7 @@ import { DtTable1DataSource } from './meteo-table-datasource';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
+  
   isLoadingData :Boolean; //= of(true);
   myLoadingSubscr:Subscription;
   products: MeteoDataTable[] = [];
@@ -34,14 +35,12 @@ displayedColumns = ['num','name','value','measure']; //, 'regname'
 
  // dataSource: DtTable1DataSource;
 //dataSource : MeteoDataTable[]=[];
-  currentDate_time;
-  currentDate_date;
+  currentDate_time="";
+  currentDate_date="";
   
   constructor(//private dataSource:MeteoDataService,
               public dataSource2:DtTable1DataSource) { //private dataService: DataService
-      const dt1 = dayjs().locale(locale_ru);
-    this.currentDate_time = dt1.format('HH:mm:ss');
-    this.currentDate_date = dt1.format(' D MMMM YYYY');
+      
     
     
     
@@ -88,6 +87,11 @@ displayedColumns = ['num','name','value','measure']; //, 'regname'
         // Индикатор загрузки
         debugger;
         this.isLoadingData = await data;
+        if (!this.isLoadingData){
+          const dt1 = dayjs().locale(locale_ru);
+          this.currentDate_time = dt1.format('HH:mm:ss');
+          this.currentDate_date = dt1.format(' D MMMM YYYY');
+        }
       }); 
      
 
@@ -132,6 +136,9 @@ debugger;
     //       )
     //       .subscribe();
     //   }
+  }
+  meteoUpd(){
+    this.dataSource2.loadMeteoData("");
   }
   //--------------
   // ngAfterViewInit_old(): void {
