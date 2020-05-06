@@ -1,0 +1,38 @@
+{
+  "hosting": [
+    {
+      "target": "mdshbrd",
+      "public": "dist/mDshBrd",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        },
+        {
+          "source": "/getMeteoData",
+          "destination": "http://doprtr.intech.ru:5050/httpproxy/192.168.8.137:4125/MeteoSrv/Service1.asmx"
+        }
+      ]
+    },
+    {
+      "target": "mdshbrd",
+      "public": "dist/mDshBrd",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

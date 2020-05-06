@@ -127,9 +127,7 @@
         },
         "deploy": {
           "builder": "@angular/fire:deploy",
-          "options": {
-            "proxyConfig": "proxy.conf.json"
-          }
+          "options": {}
         }
       }
     }

@@ -1,0 +1,47 @@
+{
+  "/getMeteoData1": {
+    "target": "http://doprtr.intech.ru:5050/httpproxy/192.168.8.137:4125/MeteoSrv/Service1.asmx/getMeteoData",
+    "pathRewrite": {"^/getMeteoData1" : ""}
+     ,"secure": false,
+      "logLevel": "debug",
+      "changeOrigin": true
+  },
+  "/getMeteoData11": {
+    "target": "https://my-json-server.typicode.com/butrov/dashBrd/",
+    "pathRewrite": {"^/getMeteoData1" : ""}
+     ,"secure": false,
+      "logLevel": "debug",
+      "changeOrigin": true
+  },
+  "/getMeteoData": {
+    "target": "http://doprtr.intech.ru:5050/httpproxy/192.168.8.137:4125/MeteoSrv/Service1.asmx",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
+  
+  "/getMeteoData4": {
+    "secure": false,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/getMeteoData1": "http://doprtr.intech.ru:5050/httpproxy/192.168.8.137:4125/MeteoSrv/Service1.asmx/getMeteoData"
+    },
+    "changeOrigin": true
+  },
+  
+  
+ "/pass/db": {
+  "target": "http://127.0.0.1:5984/",
+  "pathRewrite": {"^/pass/db/" : ""}
+}
+  ,
+  "/getMeteoData2/*": {
+    "target": "http://doprtr.intech.ru:5050/httpproxy/192.168.8.137:4125/MeteoSrv/Service1.asmx",
+    "secure": false,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/getMeteoData2": "/getMeteoData"
+    },
+    "changeOrigin": true
+  }
+}
